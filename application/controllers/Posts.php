@@ -35,7 +35,24 @@
 				$this->load->view('posts/create', $data);
 				$this->load->view('templates/footer');
 			} else{
-				$this->post_model->create_post();
+				// Upload Images
+				$config['upload_path'] = './assets/images/posts';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size'] = '2048';
+				$config['max_width'] = '5000';
+				$config['max_height'] = '5000';
+
+				$this->load->library('upload', $config);
+
+				if(!$this->upload->do_upload('postimage')){
+					$errors = array('error' => $this->upload->display_errors());
+					$post_image = 'noimage.jpg';
+				} else {
+					$data = array('upload_data' => $this->upload->data());
+					$post_image = $_FILES['postimage']['name'];
+				}
+
+				$this->post_model->create_post($post_image);
 				redirect('posts');
 			}
 		}

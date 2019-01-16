@@ -1,8 +1,11 @@
 <html>
 	<head>
 		<title>setor-i</title>
+	    <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+	    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+		<script src="http://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
 	</head>
 	<body>
 		<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -37,7 +40,7 @@
 
 	          <ul class="nav navbar-nav ml-auto">
 	            <li class="nav-item">
-	              <a class="nav-link" href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a>
+	              <a class="nav-link" href="<?php echo base_url(); ?>posts/create">Create Post</a>
 	            </li>
 	          </ul>
 
